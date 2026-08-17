@@ -1,0 +1,16 @@
+{
+  "name": "flowhire-c2c-platform",
+  "version": "1.0.0",
+  "description": "FlowHire - Automated C2C Job Finder, AI Resume Tailorer & Gmail Application System",
+  "main": "api/index.js",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.1",
+    "nodemailer": "^6.9.13"
+  }
+}
