@@ -50,21 +50,21 @@ export const Navbar = ({ onOpenSettings }) => {
         })}
       </nav>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', width: 'auto' }}>
         <button 
           onClick={() => handleScanJobs()}
           disabled={scanning}
           className="btn-primary"
-          style={{ fontSize: '13px', padding: '8px 14px' }}
+          style={{ fontSize: '13px', padding: '8px 14px', flex: 1 }}
         >
           <RefreshCw size={14} className={scanning ? 'spin' : ''} />
-          {scanning ? 'Scanning...' : 'Run LinkedIn Scan'}
+          <span>{scanning ? 'Scanning...' : 'Scan Jobs'}</span>
         </button>
 
         <button
           onClick={onOpenSettings}
           className="btn-secondary"
-          style={{ padding: '8px 12px' }}
+          style={{ padding: '8px 12px', flexShrink: 0 }}
           title="System Settings & Gmail Credentials"
         >
           <Settings size={18} />

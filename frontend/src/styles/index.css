@@ -1,7 +1,7 @@
 /* =======================================================
    FlowHire - Bespoke C2C Platform Design System
    Color Theme: Vibrant Green & Radiant Orange-Yellow
-   Aesthetic: Human Agency / Premium Executive / Glassmorphism
+   Aesthetic: Mobile & Tablet Responsive Executive Glassmorphism
    ======================================================= */
 
 :root {
@@ -61,6 +61,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -70,8 +71,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: rgba(13, 22, 36, 0.8);
@@ -110,7 +111,6 @@ h1, h2, h3, h4, h5, h6 {
 .glass-card:hover {
   background: rgba(26, 43, 68, 0.8);
   border-color: rgba(16, 185, 129, 0.4);
-  transform: translateY(-2px);
 }
 
 /* Layout Container */
@@ -127,6 +127,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 16px 28px;
   margin-bottom: 24px;
   border-radius: var(--radius-lg);
+  gap: 16px;
 }
 
 .logo-group {
@@ -145,6 +146,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   color: white;
   box-shadow: var(--shadow-orange);
+  flex-shrink: 0;
 }
 
 .logo-title {
@@ -166,18 +168,21 @@ h1, h2, h3, h4, h5, h6 {
 /* Navigation Tabs */
 .nav-tabs {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   background: rgba(9, 14, 24, 0.85);
   padding: 6px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 
 .tab-btn {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 10px 16px;
   background: transparent;
   border: none;
   color: var(--text-muted);
@@ -186,7 +191,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   border-radius: var(--radius-sm);
   cursor: pointer;
+  white-space: nowrap;
   transition: all 0.2s ease;
+  min-height: 42px;
 }
 
 .tab-btn:hover {
@@ -218,12 +225,12 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   box-shadow: var(--shadow-orange);
   transition: all 0.25s ease;
+  min-height: 42px;
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
   filter: brightness(1.08);
-  box-shadow: 0 8px 22px rgba(249, 115, 22, 0.5);
 }
 
 .btn-secondary {
@@ -241,6 +248,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
+  min-height: 42px;
 }
 
 .btn-secondary:hover {
@@ -249,20 +257,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
 }
 
-.btn-green {
-  background: linear-gradient(135deg, var(--brand-green) 0%, var(--accent-lime) 100%);
-  color: #042f1a;
-  border: none;
-  font-weight: 700;
-  box-shadow: var(--shadow-green);
-}
-
-.btn-green:hover {
-  filter: brightness(1.08);
-  box-shadow: 0 8px 22px rgba(16, 185, 129, 0.5);
-}
-
-/* Badges & Pills */
+/* Badges */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -309,12 +304,13 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(9, 14, 24, 0.9);
   border: 1px solid var(--border-color);
   color: var(--text-main);
-  padding: 10px 14px;
+  padding: 12px 14px;
   border-radius: var(--radius-sm);
   font-family: var(--font-family);
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s ease;
+  min-height: 44px;
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
@@ -327,7 +323,7 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 120px;
 }
 
-/* Grid & Layout Utilities */
+/* Grid Utilities */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -346,29 +342,15 @@ h1, h2, h3, h4, h5, h6 {
   gap: 20px;
 }
 
-@media (max-width: 1024px) {
-  .grid-4, .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .grid-2, .grid-3, .grid-4 {
-    grid-template-columns: 1fr;
-  }
-  .header-bar {
-    flex-direction: column;
-    gap: 16px;
-  }
-}
-
 /* Kanban Board Styling */
 .kanban-board {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 280px);
   gap: 16px;
   overflow-x: auto;
-  padding-bottom: 12px;
+  padding-bottom: 16px;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
 }
 
 .kanban-col {
@@ -377,6 +359,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-md);
   padding: 16px;
   min-height: 500px;
+  scroll-snap-align: start;
 }
 
 .kanban-header {
@@ -410,13 +393,13 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.82);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 20px;
+  padding: 16px;
 }
 
 .modal-content {
@@ -438,4 +421,94 @@ h1, h2, h3, h4, h5, h6 {
 
 .spin {
   animation: spin-anim 1s linear infinite;
+}
+
+/* =======================================================
+   RESPONSIVE MEDIA QUERIES (Mobile & Tablet Optimization)
+   ======================================================= */
+
+/* Tablet Screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .app-container {
+    padding: 16px;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-bar {
+    padding: 16px 20px;
+  }
+}
+
+/* Mobile & Small Tablet Screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 12px;
+  }
+
+  .header-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .logo-group {
+    justify-content: center;
+  }
+
+  .nav-tabs {
+    justify-content: flex-start;
+    padding: 4px;
+  }
+
+  .tab-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .kanban-board {
+    grid-template-columns: repeat(5, 260px);
+  }
+
+  .modal-content {
+    max-height: 94vh;
+    padding: 20px !important;
+  }
+}
+
+/* Small Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .logo-title {
+    font-size: 22px;
+  }
+
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .tab-btn span {
+    font-size: 12px;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .glass-panel {
+    padding: 16px !important;
+  }
 }
